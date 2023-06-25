@@ -1,7 +1,7 @@
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
-public class keyHandler implements KeyListener{
+public class Steuerung implements KeyListener{
 
     //Eingabe variablen
     public boolean oben, unten, links, rechts;

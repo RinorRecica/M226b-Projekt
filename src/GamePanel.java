@@ -17,12 +17,12 @@ public class GamePanel extends JPanel implements Runnable{
     final int screenWidth = tileSize * maxScreenCol; // Breite des Bildschirms in Pixeln
     final int screenHeight = tileSize * maxScreenRow; // Höhe des Bildschirms in Pixeln
 
-    keyHandler keyH = new keyHandler(); // KeyHandler-Objekt zur Tastatureingabe
+    Steuerung keyH = new Steuerung(); // KeyHandler-Objekt zur Tastatureingabe
     Thread gameThread; // Thread für das Spiel-Update und das Zeichnen
 
     int playerX = 400; // X-Position des Spielers
     int playerY = 400; // Y-Position des Spielers
-    int playerSpeed = 8; // Geschwindigkeit des Spielers
+    int playerSpeed = 5; // Geschwindigkeit des Spielers
 
     public GamePanel() {
         this.setPreferredSize(new Dimension(screenWidth, screenHeight));
@@ -64,7 +64,7 @@ public class GamePanel extends JPanel implements Runnable{
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         Graphics2D g2 = (Graphics2D) g;
-        g2.setColor(Color.blue);
+        g2.setColor(Color.white);
         g2.fillRect(playerX, playerY, tileSize, tileSize); // Spieler zeichnen
         g2.dispose();
     }
