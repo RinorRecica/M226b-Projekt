@@ -1,3 +1,4 @@
+package main;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -5,7 +6,7 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 
 import javax.swing.JPanel;
-//ScreenHHHHH
+
 public class GamePanel extends JPanel implements Runnable{
 
     //SCREEN EINSTELLUNGEN
@@ -67,6 +68,6 @@ public class GamePanel extends JPanel implements Runnable{
         g2.setColor(Color.white);
         g2.fillRect(playerX, playerY, tileSize, tileSize); // Spieler zeichnen
         g2.dispose();
-    }
+}
 
 }

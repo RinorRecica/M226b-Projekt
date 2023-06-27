@@ -1,4 +1,6 @@
-import javax.swing.JFrame;
+package main;
+
+import javax.swing.*;
 
 public class Main {
 
