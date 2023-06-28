@@ -1,13 +1,16 @@
 package main;
 
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
+import map.MapManager;
 
-import javax.swing.JPanel;
+import javax.swing.*;
+import java.awt.*;
 
 public class GamePanel extends JPanel implements Runnable{
+
+    MapManager mapM = new MapManager();
+
+
+
 
     //SCREEN EINSTELLUNGEN
     final int originalTileSize = 16; // Ursprüngliche Kachelgröße
@@ -70,4 +73,7 @@ public class GamePanel extends JPanel implements Runnable{
         g2.dispose();
 }
 
+
+    public void PlaySE(int i) {
+    }
 }
