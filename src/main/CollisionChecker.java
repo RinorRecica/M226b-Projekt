@@ -1,7 +1,7 @@
 package main;
 
 
-import entity.Entity;
+import entity.Entity;//entity??
 
 public class CollisionChecker {
 
