@@ -17,7 +17,7 @@ public class PlayerHealth {
         leeresHerzImage = new ImageIcon("images/heart/heart_leer.png");
 
     }
-
+    //healthPoints ist die aktuelle Lebensanzeige
     public int getHealthPoints() {
         return healthPoints;
     }
@@ -36,6 +36,9 @@ public class PlayerHealth {
         }
     }
 
+    
+ //----------------------------------- DESIGN & POSITIONIERUNG DER HERZEN ----------------------------------------------//
+    
     public void drawHealthBar(Graphics2D g2) {
         int x = 10; // X-Position der Herzen
         int y = 10; // Y-Position der Herzen
