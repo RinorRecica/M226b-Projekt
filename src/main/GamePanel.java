@@ -21,9 +21,6 @@ public class GamePanel extends JPanel implements Runnable {
     //CollisionChecker
 	MapManager mapM = new MapManager();
 
-    //CollisionChecker
-    MapManager mapM = new MapManager();
-
     // SCREEN EINSTELLUNGEN
     final int originalTileSize = 16; // Ursprüngliche Kachelgröße
     final int scale = 3; // Skalierungsfaktor für die Kachelgröße
