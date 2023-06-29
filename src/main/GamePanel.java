@@ -1,18 +1,20 @@
 package main;
-
 import map.MapManager;
 
-import javax.swing.*;
-import java.awt.*;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import javax.swing.JPanel;
 
-public class GamePanel extends JPanel implements Runnable{
+import character.PlayerHealth;
 
-    MapManager mapM = new MapManager();
+public class GamePanel extends JPanel implements Runnable {
+	
+	//CollisionChecker
+	MapManager mapM = new MapManager();
 
-
-
-
-    //SCREEN EINSTELLUNGEN
+    // SCREEN EINSTELLUNGEN
     final int originalTileSize = 16; // Ursprüngliche Kachelgröße
     final int scale = 3; // Skalierungsfaktor für die Kachelgröße
     final int tileSize = originalTileSize * scale; // Skalierte Kachelgröße
@@ -28,12 +30,16 @@ public class GamePanel extends JPanel implements Runnable{
     int playerY = 400; // Y-Position des Spielers
     int playerSpeed = 5; // Geschwindigkeit des Spielers
 
+    PlayerHealth playerHealth; // Spielerlebenspunkte
+
     public GamePanel() {
         this.setPreferredSize(new Dimension(screenWidth, screenHeight));
         this.setBackground(Color.darkGray);
         this.setDoubleBuffered(true);
         this.addKeyListener(keyH); // KeyListener zum Panel hinzufügen
         this.setFocusable(true);
+
+        playerHealth = new PlayerHealth();
     }
 
     public void startGameThread() {
@@ -70,10 +76,11 @@ public class GamePanel extends JPanel implements Runnable{
         Graphics2D g2 = (Graphics2D) g;
         g2.setColor(Color.white);
         g2.fillRect(playerX, playerY, tileSize, tileSize); // Spieler zeichnen
+
+        // Zeichne die Lebensanzeige
+        playerHealth.drawHealthBar(g2);
+        
+
         g2.dispose();
-}
-
-
-    public void PlaySE(int i) {
     }
 }
