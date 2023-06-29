@@ -2,6 +2,7 @@ package character;
 
 import java.awt.Graphics2D;
 import javax.swing.ImageIcon;
+import java.awt.Rectangle;
 
 public class PlayerHealth {
     private int healthPoints; // Lebenspunkte
@@ -9,6 +10,18 @@ public class PlayerHealth {
     private ImageIcon vollesHerzImage;
     private ImageIcon halbesHerzImage;
     private ImageIcon leeresHerzImage;
+
+    private int x; // X-Position des Rechtecks
+    private int y; // Y-Position des Rechtecks
+    private int width; // Breite des Rechtecks
+    private int height; // Höhe des Rechtecks
+
+    public boolean collidesWith(Rectangle other) {
+        return getBounds().intersects(other);
+    }
+    public Rectangle getBounds() {
+        return new Rectangle(x, y, width, height);
+    }
 
     public PlayerHealth() {
         healthPoints = 6; // Startwert für die Lebenspunkte (3 Herzen, wenn man getroffen wird halbes Herz Abzug)
