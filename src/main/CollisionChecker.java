@@ -1,11 +1,11 @@
 package main;
 
 
-import entity.Entity;//entity??
-
 public class CollisionChecker {
 
-    GamePanel gp; // Referenz auf das GamePanel
+    //Noch auskommentiert, da wir noch keine Map haben
+
+    /*GamePanel gp; // Referenz auf das GamePanel
 
     public CollisionChecker(GamePanel gp) {
         this.gp = gp;
@@ -59,5 +59,5 @@ public class CollisionChecker {
                 }
             }
         }
-    }
+    }*/
 }

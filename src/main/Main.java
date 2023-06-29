@@ -9,7 +9,7 @@ public class Main {
         JFrame window = new JFrame();
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         window.setResizable(false);
-        window.setTitle("Das M226b Projetk");
+        window.setTitle("Das M226b Projekt");
 
         GamePanel gamePanel = new GamePanel();
         window.add(gamePanel);
