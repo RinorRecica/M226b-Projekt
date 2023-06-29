@@ -58,9 +58,6 @@ public class GamePanel extends JPanel implements Runnable {
 
     private int swordOffsetX = 0; // Horizontale Verschiebung des Schwertes
 
-
-    PlayerHealth playerHealth; // Spielerlebens punkte
-
     //Start Timer
 
 
