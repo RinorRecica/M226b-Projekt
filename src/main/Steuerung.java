@@ -7,7 +7,7 @@ public class Steuerung implements KeyListener{
 
     //Eingabe variablen
     public boolean oben, unten, links, rechts;
-
+    private boolean angriff; // Flag für Angriff
     public void keyTyped(KeyEvent e) {
     }
 
@@ -28,7 +28,9 @@ public class Steuerung implements KeyListener{
         if(code == KeyEvent.VK_RIGHT){
             rechts = true;
         }
-
+        if (code == KeyEvent.VK_SPACE) {
+            angriff = true;
+        }
 
     }
 
@@ -49,7 +51,15 @@ public class Steuerung implements KeyListener{
         if(code == KeyEvent.VK_RIGHT){
             rechts = false;
         }
+        if (code == KeyEvent.VK_SPACE) {
+            angriff = false;
+        }
+    }
 
+
+    // Getter für das Attribut "angriff"
+    public boolean isAngriff() {
+        return angriff;
     }
 
 }
