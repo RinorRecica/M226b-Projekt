@@ -15,6 +15,12 @@ import java.awt.event.ActionEvent;
 
 public class GamePanel extends JPanel implements Runnable {
 
+    private long startTime;
+    private long elapsedTime;
+
+    //CollisionChecker
+	MapManager mapM = new MapManager();
+
     //CollisionChecker
     MapManager mapM = new MapManager();
 
@@ -55,6 +61,10 @@ public class GamePanel extends JPanel implements Runnable {
 
     private int swordOffsetX = 0; // Horizontale Verschiebung des Schwertes
 
+
+    PlayerHealth playerHealth; // Spielerlebens punkte
+
+    //Start Timer
 
 
     public GamePanel() {
@@ -111,23 +121,30 @@ public class GamePanel extends JPanel implements Runnable {
     }
 
     public void startGameThread() {
+        startTime = System.currentTimeMillis(); // Timer starten
         gameThread = new Thread(this);
         gameThread.start(); // Spiel-Thread starten
     }
 
-    public void run() {
-        while (gameThread != null) {
-            update(); // Spiel-Update durchführen
-            repaint(); // Panel neu zeichnen
-            try {
-                Thread.sleep(16); // ~60 FPS (ca. 16 Millisekunden Verzögerung pro Frame)
-            } catch (InterruptedException e) {
-                e.printStackTrace();
+
+        public void run () {
+            while (gameThread != null) {
+                update(); // Spiel-Update durchführen
+                repaint(); // Panel neu zeichnen
+                try {
+                    Thread.sleep(16); // ~60 FPS (ca. 16 Millisekunden Verzögerung pro Frame)
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
             }
         }
-    }
+
 
     public void update() {
+
+        // Update die elapsed time
+        elapsedTime = (System.currentTimeMillis() - startTime) / 1000;
+
         if (keyH.oben) {
             playerY -= playerSpeed; // Spieler nach oben bewegen
         } else if (keyH.unten) {
@@ -169,6 +186,7 @@ public class GamePanel extends JPanel implements Runnable {
         // Zeichnen des Spielers
         g.drawImage(playerImage, playerX, playerY, null);
 
+
         // Zeichnen des Bildes der Waffe des Spielers
         Image weaponImage = weaponImages.get(playerWeapon.getName().toLowerCase());
         if (weaponImage != null) {
@@ -195,6 +213,20 @@ public class GamePanel extends JPanel implements Runnable {
         g2.drawString("Stärke: " + playerWeapon.getDamagePoints(), infoBoxX + 10, infoBoxY + 50);
 
 
+        //<------------Timer Design---------->
+        // Schriftgröße und Schriftart ändern
+        Font currentFont = g.getFont();
+        Font newFont = currentFont.deriveFont(currentFont.getSize() * 1.5F); // Vergrößern Sie die Schriftgröße
+        g.setFont(newFont);
+        //Zeichne den Hintergrund für den Timer oben rechts
+        g.setColor(Color.BLACK); // Wähle eine Farbe für den Hintergrund
+        String zeitString = "Survival-timer: " + elapsedTime + "  Seconds";
+        int stringBreite = g.getFontMetrics().stringWidth(zeitString);
+        g.fillRect(screenWidth - stringBreite - 25, 15, stringBreite + 10, 30);
+        // Zeichne den Timer oben rechts im Bildschirm
+        g.setColor(Color.WHITE); // Stellen Sie sicher, dass die Farbe gut sichtbar ist
+        g.drawString(zeitString, screenWidth - stringBreite - 20, 35);
+
         g2.dispose();
-        }
+    }
 }
