@@ -1,7 +1,7 @@
 package main;
 
 import character.PlayerHealth;
-import map.MapManager;
+import tile.TileManager;
 import player.Player;
 import weapons.Weapon;
 
@@ -19,16 +19,16 @@ public class GamePanel extends JPanel implements Runnable {
     private long elapsedTime;
 
     //CollisionChecker
-	MapManager mapM = new MapManager();
+	TileManager tileM = new TileManager(this);
 
     // SCREEN EINSTELLUNGEN
-    final int originalTileSize = 16; // Ursprüngliche Kachelgröße
-    final int scale = 3; // Skalierungsfaktor für die Kachelgröße
-    final int tileSize = originalTileSize * scale; // Skalierte Kachelgröße
-    final int maxScreenCol = 16; // Maximale Anzahl an Kacheln in einer Spalte
-    final int maxScreenRow = 12; // Maximale Anzahl an Kacheln in einer Zeile
-    final int screenWidth = tileSize * maxScreenCol; // Breite des Bildschirms in Pixeln
-    final int screenHeight = tileSize * maxScreenRow; // Höhe des Bildschirms in Pixeln
+   public final int originalTileSize = 16; // Ursprüngliche Kachelgröße
+    public final int scale = 3; // Skalierungsfaktor für die Kachelgröße
+    public final int tileSize = originalTileSize * scale; // Skalierte Kachelgröße
+   public final int maxScreenCol = 18; // Maximale Anzahl an Kacheln in einer Spalte
+   public final int maxScreenRow = 14; // Maximale Anzahl an Kacheln in einer Zeile
+   public final int screenWidth = tileSize * maxScreenCol; // Breite des Bildschirms in Pixeln
+    public final int screenHeight = tileSize * maxScreenRow; // Höhe des Bildschirms in Pixeln
 
     Steuerung keyH = new Steuerung(); // KeyHandler-Objekt zur Tastatureingabe
     Thread gameThread; // Thread für das Spiel-Update und das Zeichnen
@@ -171,6 +171,10 @@ public class GamePanel extends JPanel implements Runnable {
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         Graphics2D g2 = (Graphics2D) g;
+
+        //Zeiche die Map
+        tileM.draw(g2);
+
         g2.setColor(Color.white);
         g2.fillRect(playerX, playerY, tileSize, tileSize); // Spieler zeichnen
 
