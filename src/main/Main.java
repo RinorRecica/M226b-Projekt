@@ -1,6 +1,6 @@
 package main;
 
-import javax.swing.*;
+import javax.swing.JFrame;
 
 public class Main {
 
@@ -9,7 +9,8 @@ public class Main {
         JFrame window = new JFrame();
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         window.setResizable(false);
-        window.setTitle("Das M226b Projekt");
+        window.setTitle("B/R  MAZE"
+                + "Update 4");
 
         GamePanel gamePanel = new GamePanel();
         window.add(gamePanel);
