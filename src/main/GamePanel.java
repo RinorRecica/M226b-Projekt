@@ -7,11 +7,9 @@ import java.awt.Graphics2D;
 
 import javax.swing.JPanel;
 
-import tile.TilesManager;
+import tile.tilesManager;
 
 import entity.Player;
-import main.CollisionChecker;
-import tile.Tile;
 
 public class GamePanel extends JPanel implements Runnable{
 
@@ -36,11 +34,12 @@ public class GamePanel extends JPanel implements Runnable{
     // FPS
     int FPS = 60;
 
-    TilesManager tileM = new TilesManager(this);
+    tilesManager tileM = new tilesManager(this);
     Steuerung keyH = new Steuerung();
     Thread gameThread;
 
     public CollisionChecker cChecker = new CollisionChecker(this);
+
 
     public Player player = new Player(this, keyH);
 
