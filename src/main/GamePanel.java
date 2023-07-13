@@ -7,6 +7,7 @@ import java.awt.Graphics2D;
 
 import javax.swing.JPanel;
 
+import character.PlayerHealth;
 import tile.tilesManager;
 
 import entity.Player;
@@ -48,6 +49,7 @@ public class GamePanel extends JPanel implements Runnable{
     int playerY = 100;
     int playerSpeed = 4;
 
+  PlayerHealth playerHealth; // Spielerlebenspunkte
 
     public GamePanel() {
 
@@ -56,6 +58,8 @@ public class GamePanel extends JPanel implements Runnable{
         this.setDoubleBuffered(true);
         this.addKeyListener(keyH);
         this.setFocusable(true);
+
+        playerHealth = new PlayerHealth();
     }
 
 
@@ -115,6 +119,7 @@ public class GamePanel extends JPanel implements Runnable{
 
         tileM.draw(g2);
         player.draw(g2);
+        playerHealth.drawHealthBar(g2); // Zeichne die Lebensanzeige
 
         g2.dispose();
     }
