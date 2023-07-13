@@ -16,7 +16,7 @@ import javax.swing.*;
 import character.PlayerHealth;
 import tile.tilesManager;
 import opponent.Enemy;
-import tile.TilesManager;
+import tile.tilesManager;
 
 import entity.Player;
 import main.CollisionChecker;
@@ -45,7 +45,7 @@ public class GamePanel extends JPanel implements Runnable{
     // FPS
     int FPS = 60;
 
-    TilesManager tileM = new TilesManager(this);
+    tilesManager tileM = new tilesManager(this);
     Steuerung keyH = new Steuerung();
     Thread gameThread;
 
