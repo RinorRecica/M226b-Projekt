@@ -9,8 +9,8 @@ public class Main {
         JFrame window = new JFrame();
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         window.setResizable(false);
-        window.setTitle("B/R  MAZE"
-                + "Update 4");
+        window.setTitle("Island of Death"
+                + "Update 9");
 
         GamePanel gamePanel = new GamePanel();
         window.add(gamePanel);
