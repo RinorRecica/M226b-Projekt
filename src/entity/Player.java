@@ -76,6 +76,9 @@ public class Player extends Entity {
 				direction = "right";
 			}
 
+			// CHECK EVENT
+			gp.eHandler.checkEvent();
+
 			collisionOn = false;
 			gp.cChecker.checkTile(this);
 
@@ -147,6 +150,7 @@ public class Player extends Entity {
 				}
 				break;
 		}
+
 
 		// Auswahl des Schwertbildes basierend auf dem aktuellen Frame
 		if(schwertFrame == 1) {

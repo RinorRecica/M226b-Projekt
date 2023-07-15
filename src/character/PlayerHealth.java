@@ -4,8 +4,8 @@ import java.awt.Graphics2D;
 import javax.swing.ImageIcon;
 import java.awt.Rectangle;
 
-public class PlayerHealth {
-    private int healthPoints; // Lebenspunkte
+    public class PlayerHealth {
+    public static int healthPoints; // Lebenspunkte
 
     private ImageIcon vollesHerzImage;
     private ImageIcon halbesHerzImage;

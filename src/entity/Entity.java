@@ -7,6 +7,8 @@ import java.awt.image.BufferedImage;
 
 public class Entity {
 
+    public int solidAreaDefaultX, solidAreaDefaultY;
+
     public int worldX, worldY;
     public int speed;
 
