@@ -47,6 +47,9 @@ public class GamePanel extends JPanel implements Runnable{
 
     tilesManager tileM = new tilesManager(this);
     Steuerung keyH = new Steuerung();
+
+
+    Sound sound = new Sound();//SOUND
     Thread gameThread;
 
     public CollisionChecker cChecker = new CollisionChecker(this);
@@ -72,6 +75,8 @@ public class GamePanel extends JPanel implements Runnable{
         this.setFocusable(true);
 
         playerHealth = new PlayerHealth();
+
+        playMusic(0); // Hintergrundmusik abspielen
 
         enemies = new ArrayList<>(); // Initialisiere die Liste der Gegner
 
@@ -166,6 +171,7 @@ public class GamePanel extends JPanel implements Runnable{
 
         tileM.draw(g2);
         player.draw(g2);
+        playerHealth.drawHealthBar(g2); //Zeichne die Lebensanzeige
 
 
         List<Enemy> enemiesToDraw = new ArrayList<>(enemies); // Kopie der enemies-Liste erstellen
@@ -175,5 +181,18 @@ public class GamePanel extends JPanel implements Runnable{
         }
 
         g2.dispose();
+    }
+    public void playMusic(int i) {
+
+      sound.setFile(i);
+      sound.play();
+      sound.loop();
+    }
+    public void stopMusic() {
+      sound.stop();
+    }
+    public void playSE(int i) {
+      sound.setFile(i);
+      sound.play();
     }
 }
